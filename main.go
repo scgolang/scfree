@@ -4,6 +4,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"time"
 
 	"github.com/scgolang/sc"
 )
@@ -21,7 +22,7 @@ func main() {
 
 	serverAddr := fmt.Sprintf("%s:%d", host, port)
 
-	client, err := sc.NewClient("udp", "127.0.0.1:57110", serverAddr)
+	client, err := sc.NewClient("udp", "127.0.0.1:57110", serverAddr, 5*time.Second)
 	if err != nil {
 		log.Fatal(err)
 	}
